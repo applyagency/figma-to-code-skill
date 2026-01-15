@@ -28,17 +28,17 @@ Before using this skill, ensure you have these MCP servers enabled:
 
 ## Installation
 
-### Option 1: Copy to your project
+Add the skill to your project using the Cursor CLI:
 
 ```bash
-# Copy the skill folder to your project
-cp -r figma-to-code your-project/.cursor/skills/
+cursor skills add https://github.com/applyagency/figma-to-code-skill
 ```
 
-### Option 2: Clone from GitHub
+Or manually clone and copy:
 
 ```bash
-git clone https://github.com/your-org/figma-to-code-skill.git
+git clone https://github.com/applyagency/figma-to-code-skill.git
+cp -r figma-to-code-skill your-project/.cursor/skills/figma-to-code
 ```
 
 ## Usage
