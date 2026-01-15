@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Figma Implementation</title>
+  
+  <!-- Google Fonts - Replace with font from Figma -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    /* CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Font smoothing for better rendering */
+    body {
+      font-family: 'Urbanist', sans-serif; /* Replace with Figma font */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      background-color: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    /* =============================================
+       DESIGN TOKENS FROM FIGMA
+       Extract these from globalVars.styles
+       ============================================= */
+    :root {
+      /* Colors - from fill_* values */
+      --color-background: #FDFDFD;
+      --color-text-primary: #1E162E;
+      --color-border: #DBDBDB;
+      
+      /* Add more colors as needed */
+    }
+
+    /* =============================================
+       MAIN CONTAINER
+       Use dimensions from Figma node
+       ============================================= */
+    .container {
+      position: relative;
+      width: 318px;           /* From dimensions.width */
+      height: 230px;          /* From dimensions.height */
+      background-color: var(--color-background);
+      border-radius: 8px;     /* From borderRadius */
+    }
+
+    /* =============================================
+       ELEMENTS - Position using Figma coordinates
+       ============================================= */
+    
+    /* Example element
+       Figma: x: 16, y: 16, font-size: 16px, line-height: 1.05
+    */
+    .title {
+      position: absolute;
+      top: 16px;              /* From locationRelativeToParent.y */
+      left: 16px;             /* From locationRelativeToParent.x */
+      font-size: 16px;        /* From textStyle fontSize */
+      font-weight: 500;       /* From textStyle fontWeight */
+      line-height: 1.05;      /* From textStyle lineHeight */
+      color: var(--color-text-primary);
+    }
+
+    /* Example large text
+       Figma: x: 16, y: 48, font-size: 48px, line-height: 1.2
+       Using line-height: 1 to eliminate offset issues
+    */
+    .large-text {
+      position: absolute;
+      top: 43px;              /* Adjusted: 48 - 5 for line-height offset */
+      left: 16px;
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 1;         /* Use 1 for precise positioning */
+      color: var(--color-text-primary);
+    }
+
+    /* =============================================
+       COMPARISON LAYOUT (for testing)
+       Remove in production
+       ============================================= */
+    .comparison-container {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .comparison-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .comparison-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #666;
+    }
+
+    /* Scale @2x Figma export to 1x */
+    #original-image {
+      width: 318px;  /* Half of exported width */
+      height: 230px; /* Half of exported height */
+    }
+  </style>
+</head>
+<body>
+  <div class="comparison-container">
+    <!-- Original Figma export -->
+    <div class="comparison-item">
+      <span class="comparison-label">Original (Figma)</span>
+      <img src="original.png" alt="Figma design" id="original-image">
+    </div>
+    
+    <!-- Your implementation -->
+    <div class="comparison-item">
+      <span class="comparison-label">Implementation</span>
+      <div class="container" id="implementation">
+        <!-- Add your elements here -->
+        <h1 class="title">Title</h1>
+        <span class="large-text">Content</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

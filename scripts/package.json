@@ -1,0 +1,13 @@
+{
+  "name": "figma-to-code-scripts",
+  "version": "1.0.0",
+  "description": "Helper scripts for Figma to Code skill",
+  "type": "module",
+  "scripts": {
+    "compare": "node compare.js"
+  },
+  "dependencies": {
+    "pixelmatch": "^6.0.0",
+    "pngjs": "^7.0.0"
+  }
+}
